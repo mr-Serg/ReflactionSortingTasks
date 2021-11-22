@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortingLibrary", "SortLibra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArrayView", "ArrayView\ArrayView.csproj", "{5317F860-A61D-4064-9099-649CD29B2FA9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortWorker", "SortWorker\SortWorker.csproj", "{E9D57D30-645F-4C35-9E70-E2773E39598C}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OldSortLibrary", "OldSordLibrary\OldSortLibrary.csproj", "{8059FE87-7D7D-42D7-8381-7112B5E570C0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskWorker", "TaskWorker\TaskWorker.csproj", "{2D1A631C-0DC3-4AAE-A64C-3BE20E084D47}"
