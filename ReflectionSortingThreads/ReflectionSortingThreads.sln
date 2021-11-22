@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OldSortLibrary", "OldSordLi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskWorker", "TaskWorker\TaskWorker.csproj", "{2D1A631C-0DC3-4AAE-A64C-3BE20E084D47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortWorker", "SortWorker\SortWorker.csproj", "{E9D57D30-645F-4C35-9E70-E2773E39598C}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
