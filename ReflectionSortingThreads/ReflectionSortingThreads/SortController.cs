@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using SortWorker;
 using TaskWorker;
-using System.Threading.Tasks;
 
 namespace ReflectionSortingThreads
 {
@@ -88,10 +86,9 @@ namespace ReflectionSortingThreads
             sorters.RemoveAt(sorters.Count - 1);
         }
 
-        public async void StartAll(Control control)
+        public void StartAll()
         {
-            Task[] tasks =(from m in sorters select m.Start(control)).ToArray<Task>();
-            await Task.WhenAll(tasks);
+            foreach (InTaskSorter sorter in sorters) sorter.Start();
         }
     }
 }

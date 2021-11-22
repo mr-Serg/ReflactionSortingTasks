@@ -40,7 +40,7 @@
             this.viewPanel.Name = "viewPanel";
             this.viewPanel.Size = new System.Drawing.Size(177, 520);
             this.viewPanel.TabIndex = 0;
-            this.viewPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.viewPanel_Paint);
+            this.viewPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.ViewPanel_Paint);
             // 
             // viewButton
             // 
@@ -51,7 +51,7 @@
             this.viewButton.TabIndex = 1;
             this.viewButton.UseVisualStyleBackColor = true;
             this.viewButton.Visible = false;
-            this.viewButton.Click += new System.EventHandler(this.viewButton_Click);
+            this.viewButton.Click += new System.EventHandler(this.ViewButton_Click);
             // 
             // cmbMethods
             // 
@@ -61,7 +61,7 @@
             this.cmbMethods.Size = new System.Drawing.Size(150, 21);
             this.cmbMethods.TabIndex = 2;
             this.cmbMethods.Text = "Select an algorithm";
-            this.cmbMethods.SelectedIndexChanged += new System.EventHandler(this.cmbMethods_SelectedIndexChanged);
+            this.cmbMethods.SelectedIndexChanged += new System.EventHandler(this.CmbMethods_SelectedIndexChanged);
             // 
             // ArrayView
             // 

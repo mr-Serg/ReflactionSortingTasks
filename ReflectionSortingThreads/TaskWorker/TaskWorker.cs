@@ -45,17 +45,18 @@ namespace TaskWorker
         {
             tokenSource.Cancel();
         }
-        public Task Start(System.Windows.Forms.Control control)
+        public async void Start()
         {
             if (tokenSource.Token.IsCancellationRequested) // використаний токен треба замінити
             {
                 tokenSource.Dispose();
                 tokenSource = new CancellationTokenSource();
             }
-            return Task.Run(() =>
+            await Task.Run(() =>
             {
-                sortMethod.Invoke(null, new object[] { array, tokenSource.Token, progress });
-            }, tokenSource.Token).ContinueWith(task => control.Invoke(continuation));
+                sortMethod?.Invoke(null, new object[] { array, tokenSource.Token, progress });
+            }, tokenSource.Token);
+            continuation();
         }
     }
 }

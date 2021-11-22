@@ -50,7 +50,7 @@
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Add thread";
             this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // btnRemove
             // 
@@ -62,7 +62,7 @@
             this.btnRemove.TabIndex = 5;
             this.btnRemove.Text = "Remove thread";
             this.btnRemove.UseVisualStyleBackColor = true;
-            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            this.btnRemove.Click += new System.EventHandler(this.BtnRemove_Click);
             // 
             // aLabel
             // 
@@ -112,7 +112,7 @@
             this.btnSort.TabIndex = 2;
             this.btnSort.Text = "Sort";
             this.btnSort.UseVisualStyleBackColor = true;
-            this.btnSort.Click += new System.EventHandler(this.btnSort_Click);
+            this.btnSort.Click += new System.EventHandler(this.BtnSort_Click);
             // 
             // cmBoxGen
             // 
@@ -147,7 +147,7 @@
             this.btnLoad.TabIndex = 0;
             this.btnLoad.Text = "Load assembly";
             this.btnLoad.UseVisualStyleBackColor = true;
-            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+            this.btnLoad.Click += new System.EventHandler(this.BtnLoad_Click);
             // 
             // openFileDialog
             // 

@@ -15,8 +15,8 @@ namespace ArrayView
                                           //   незалежно від інших частин компоненти. Постачальником масивів є модель,
                                           //   зберігають масиви тільки тут
         // objects serve graphical needs
-        private Graphics canvas;          // * об'єкти, що обслуговують 
-        private Pen erasePen;             // *    графіку
+        private readonly Graphics canvas;          // * об'єкти, що обслуговують 
+        private readonly Pen erasePen;             // *    графіку
 
         public ArrayView()
         {
@@ -73,8 +73,8 @@ namespace ArrayView
         {
             this.sorter = bs;
             this.sorter.SetArray(arrayToShow);
-            this.sorter.SetProgress(sorter_SortingExchange);
-            this.sorter.SetContinuation(sorter_SortingComplete);
+            this.sorter.SetProgress(Sorter_SortingExchange);
+            this.sorter.SetContinuation(Sorter_SortingComplete);
         }
         public void SetMethod(System.Reflection.MethodInfo method)
         {
@@ -101,24 +101,18 @@ namespace ArrayView
 
         // Dispatcher of the component event
         // * диспетчери подій компоненти
-        private void OnSortingComplete(EventArgs e)
-        {
-            if (SortingComplete != null) SortingComplete(this, e);
-        }
-        private void OnComboIndexChanged(ComboEventArgs e)
-        {
-            if (ComboIndexChanged != null) ComboIndexChanged(this, e);
-        }
+        private void OnSortingComplete(EventArgs e) => SortingComplete?.Invoke(this, e);
+        private void OnComboIndexChanged(ComboEventArgs e) => ComboIndexChanged?.Invoke(this, e);
 
         // Working up events happened with the component 
         // * опрацювання події складової частини компоненти
-        private void viewButton_Click(object sender, EventArgs e)
+        private void ViewButton_Click(object sender, EventArgs e)
         {
             this.sorter.Stop();
             //this.viewButton.Visible = false;
         }
         // * компонента розпізнала подію комбобокса і сигналізує про це користувачеві
-        private void cmbMethods_SelectedIndexChanged(object sender, EventArgs e)
+        private void CmbMethods_SelectedIndexChanged(object sender, EventArgs e)
         {
             OnComboIndexChanged(new ComboEventArgs(cmbMethods.SelectedIndex));
         }
@@ -155,20 +149,20 @@ namespace ArrayView
         }
 
         // * панель повинна зобразити себе разом з масивом
-        private void viewPanel_Paint(object sender, PaintEventArgs e)
+        private void ViewPanel_Paint(object sender, PaintEventArgs e)
         {
             if (this.arrayToShow != null) PaintArray(e.Graphics, this.arrayToShow);
         }
 
         // Handlers of the controller events
         // * методи опрацювання подій контроллера
-        private void sorter_SortingExchange((int index, int value) t)
+        private void Sorter_SortingExchange((int index, int value) t)
         {
             PaintExchange(t.index, t.value);
         }
         // and signal the own event
         // *   + запуск власної події
-        public void sorter_SortingComplete()
+        public void Sorter_SortingComplete()
         {
             this.viewButton.Visible = false;
             OnSortingComplete(null);

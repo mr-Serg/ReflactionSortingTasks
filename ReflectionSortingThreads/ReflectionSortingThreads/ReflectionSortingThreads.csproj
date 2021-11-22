@@ -111,10 +111,6 @@
       <Project>{F638F544-0534-49C7-A597-18D532E03766}</Project>
       <Name>SortingLibrary</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SortWorker\SortWorker.csproj">
-      <Project>{e9d57d30-645f-4c35-9e70-e2773e39598c}</Project>
-      <Name>SortWorker</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TaskWorker\TaskWorker.csproj">
       <Project>{2d1a631c-0dc3-4aae-a64c-3be20e084d47}</Project>
       <Name>TaskWorker</Name>

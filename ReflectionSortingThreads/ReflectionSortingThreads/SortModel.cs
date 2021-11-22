@@ -9,7 +9,7 @@ namespace ReflectionSortingThreads
     public class SortModel
     {
         private int[] theArray;
-        private Random generator;
+        private readonly Random generator;
 
         // Changeing of the array size leads to generating a new array
         // зміна розміру спричиняє створення нового масиву і наповнення його значеннями

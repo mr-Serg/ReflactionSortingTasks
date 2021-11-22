@@ -15,13 +15,13 @@ namespace ReflectionSortingThreads
         private bool arraysAreRandom;   // ознака того, чи масиви вже відсортовано
 
         // the form holds a collection of ArrayView components. An user can add/remove views dynamically
-        private int[] xLocation = { 12, 195, 378, 561, 744 };
-        private List<ArrayView.ArrayView> Views;
+        private readonly int[] xLocation = { 12, 195, 378, 561, 744 };
+        private readonly List<ArrayView.ArrayView> Views;
 
         // the model responds for arrays generation and storage
         // the controller provides BackGroundSorters
-        private SortModel model;
-        private SortController controller;
+        private readonly SortModel model;
+        private readonly SortController controller;
 
         public VisualForm()
         {
@@ -38,14 +38,14 @@ namespace ReflectionSortingThreads
         }
 
         // Changing of index of the combobox in an arrayView causes changing of the sorting algorithm
-        private void arrayView_ComboIndexChanged(object sender, ArrayView.ComboEventArgs e)
+        private void ArrayView_ComboIndexChanged(object sender, ArrayView.ComboEventArgs e)
         {
             (sender as ArrayView.ArrayView).SetMethod(controller.GetMethod(e.Index));
             btnSort.Enabled = threadsRunning == 0;
         }
 
         // Dynamic creation of a new arrayView component
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void BtnAdd_Click(object sender, EventArgs e)
         {
             int i = Views.Count;
             // an array to sort and view
@@ -53,7 +53,7 @@ namespace ReflectionSortingThreads
             // set names to the arrayView's combobox
             a.AddRange(controller.MethodNames);
             // set event handlers
-            a.ComboIndexChanged += arrayView_ComboIndexChanged;
+            a.ComboIndexChanged += ArrayView_ComboIndexChanged;
             a.SortingComplete += DecreaseThreadsRunning;
             // set a new backGroundSorter
             
@@ -66,7 +66,7 @@ namespace ReflectionSortingThreads
         }
 
         // Dynamic removing of the arrayView component and related sorter
-        private void btnRemove_Click(object sender, EventArgs e)
+        private void BtnRemove_Click(object sender, EventArgs e)
         {
             int i = Views.Count;
             Views[i - 1].Visible = false;
@@ -76,7 +76,7 @@ namespace ReflectionSortingThreads
             btnAdd.Enabled = true;
         }
 
-        private void btnSort_Click(object sender, EventArgs e)
+        private void BtnSort_Click(object sender, EventArgs e)
         {
             if (arraysAreRandom)
             {
@@ -95,7 +95,7 @@ namespace ReflectionSortingThreads
                 btnRemove.Enabled = false;
                 // Starting sorting threads
                 // * запуск на виконання потоків сортування
-                controller.StartAll(this);
+                controller.StartAll();
             }
             else
             {
@@ -143,12 +143,12 @@ namespace ReflectionSortingThreads
             }
         }
 
-        private void btnLoad_Click(object sender, EventArgs e)
+        private void BtnLoad_Click(object sender, EventArgs e)
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK &&
                 controller.LoadAssembly(openFileDialog.FileName))
             {
-                btnAdd_Click(this, null);
+                BtnAdd_Click(this, null);
                 btnLoad.Enabled = false;
             }
         }
